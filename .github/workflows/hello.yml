@@ -1,9 +1,10 @@
 name: Hello World with Python
-    on:
-        push:
+
+on:
+    push:
         branches:
             - main
-        workflow_dispatch:
+    workflow_dispatch:
 
 jobs:
     hello-python:
@@ -12,9 +13,9 @@ jobs:
         
         steps:
             - name: Check out the repository
-                uses: actions/checkout@v4
+              uses: actions/checkout@v4
             
             - name: Run the Python program
-                env:
+              env:
                     WHO_TO_GREET: 'GitHub Actions Student'
-                run: python hello.py
+              run: python hello.py
