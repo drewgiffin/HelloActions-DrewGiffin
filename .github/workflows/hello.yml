@@ -1,20 +1,31 @@
+# The name of the workflow
 name: Hello World with Python
 
+# Events that trigger the workflow
 on:
+    # Pushing to main automatically runs the program
     push:
         branches:
             - main
+    # The program may be executed manually
     workflow_dispatch:
 
+# The job(s) that constitute the workflow
 jobs:
+    # Copy the latest code and execute it
     hello-python:
+        # Name of the job
         name: Run the Python Hello World program
+        # Machine the job runs on
         runs-on: ubuntu-latest
         
+        # The ordered steps that make up the job 
         steps:
+            # Copy the latest code
             - name: Check out the repository
               uses: actions/checkout@v4
             
+            # Run hello.py
             - name: Run the Python program
               env:
                     WHO_TO_GREET: 'GitHub Actions Student'
